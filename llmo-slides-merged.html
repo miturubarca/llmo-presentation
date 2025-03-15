@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>次世代検索対策：LLMO戦略</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .slide-container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        
+        .slide {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 50, 0.1);
+            padding: 40px 30px 40px 30px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: auto;
+            aspect-ratio: 16/9;
+        }
+        
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, #1e5799 0%, #2989d8 50%, #207cca 100%);
+        }
+        
+        .slide-title {
+            color: #1e5799;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0 0 25px 0;
+        }
+        
+        .slide-number {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #1e5799;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+        
+        .slide-content {
+            height: calc(100% - 60px);
+            overflow: auto;
+        }
+        
+        .two-columns {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .cover-slide {
+            background: linear-gradient(135deg, #1e5799 0%, #2989d8 50%, #207cca 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .cover-title {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .cover-subtitle {
+            font-size: 24px;
+        }
+        
+        .bullet-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .bullet-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .bullet-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background-color: #1e5799;
+            border-radius: 50%;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #d0d0d0;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comparison-table th {
+            background-color: #e6f2ff;
+            color: #1e5799;
+            font-weight: bold;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .icon-box {
+            background-color: #e6f2ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            border-left: 5px solid #1e5799;
+        }
+        
+        .icon-box-content {
+            flex: 1;
+        }
+        
+        .icon-box-title {
+            color: #1e5799;
+            font-weight: bold;
+            font-size: 20px;
+            margin: 0 0 5px 0;
+        }
+        
+        .icon-box-text {
+            margin: 0;
+            font-size: 16px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 15px;
+            width: 4px;
+            background: linear-gradient(to bottom, #1e5799, #7db9e8);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-date {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background-color: #1e5799;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .timeline-content {
+            background-color: white;
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-title {
+            margin: 0 0 10px 0;
+            color: #1e5799;
+            font-weight: bold;
+        }
+        
+        .bar-chart {
+            height: 200px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            padding: 20px 0;
+        }
+        
+        .bar {
+            width: 60px;
+            background: linear-gradient(to top, #1e5799, #7db9e8);
+            border-radius: 5px 5px 0 0;
+            position: relative;
+            text-align: center;
+        }
+        
+        .bar-label {
+            position: absolute;
+            bottom: -25px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .bar-value {
+            position: absolute;
+            top: -25px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-weight: bold;
+            color: #1e5799;
+        }
+        
+        .highlight-box {
+            background-color: #fffde7;
+            border-left: 5px solid #ffd700;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .highlight-title {
+            color: #ff6f00;
+            margin: 0 0 10px 0;
+            font-weight: bold;
+        }
+        
+        .section-title {
+            color: #1e5799;
+            font-size: 22px;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        
+        .comparison-block {
+            display: flex;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+
+        .comparison-item {
+            flex: 1;
+            background-color: #f9f9f9;
+            border: 1px solid #d0d0d0;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+        }
+
+        .comparison-item.highlighted {
+            background-color: #e6f2ff;
+            border-color: #1e5799;
+        }
+
+        .comparison-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .comparison-item.highlighted .comparison-title {
+            color: #1e5799;
+        }
+
+        .arrow-right {
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            transform: translateY(-50%);
+            color: #1e5799;
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        .tech-box {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+        
+        .tech-logo {
+            width: 80px;
+            height: 80px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            color: #333;
+            font-weight: bold;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        
+        .tech-content {
+            flex: 1;
+        }
+        
+        .tech-title {
+            color: #1e5799;
+            font-weight: bold;
+            margin: 0 0 5px 0;
+        }
+        
+        .tech-text {
+            margin: 0;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+        <!-- スライド1: 表紙 -->
+        <div class="slide cover-slide">
+            <div class="cover-title">次世代検索対策：LLMO戦略</div>
+            <div class="cover-subtitle">AI時代にSEOと組み合わせて情報を届ける</div>
+        </div>
+
+        <!-- スライド2: 目次 -->
+        <div class="slide">
+            <div class="slide-number">2</div>
+            <h2 class="slide-title">次世代検索対策のポイント</h2>
+            <div class="slide-content">
+                <div class="two-columns">
+                    <div class="column">
+                        <ul class="bullet-list">
+                            <li>LLMOとは？ - AIに情報を届ける新しい方法</li>
+                            <li>SEOとの違いと組み合わせ戦略の強み</li>
+                            <li>なぜSEOを補完する必要があるのか</li>
+                            <li>情報検索の変化と企業への影響</li>
+                            <li>LLMOの基本的な仕組み</li>
+                            <li>競合をリードするための戦略</li>
+                            <li>今からできる対策と投資計画</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <h4 class="highlight-title">なぜ今取り組むべきか</h4>
+                            <p>多くの企業がまだLLMOに気づいていない今、先行して対策することで大きなアドバンテージを得られます。</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div style="height: 100%; display: flex; justify-content: center; align-items: center; background-color: #e6f2ff; border-radius: 8px; padding: 20px; color: #1e5799; font-size: 24px; font-weight: bold; text-align: center;">
+                            SEOの強みを活かしながら<br>AI時代の新たな可能性を広げる
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド3: LLMOとは -->
+        <div class="slide">
+            <div class="slide-number">3</div>
+            <h2 class="slide-title">1. LLMOとは？</h2>
+            <div class="slide-content">
+                <div class="two-columns">
+                    <div class="column">
+                        <div class="icon-box">
+                            <div class="icon-box-content">
+                                <h3 class="icon-box-title">AIに情報を届けるための新技術</h3>
+                                <p class="icon-box-text">LLMOとは「大きなAIに情報を届けるための工夫」です</p>
+                            </div>
+                        </div>
+
+                        <ul class="bullet-list">
+                            <li>ChatGPTなどのAIが私たちの情報を表示するよう最適化</li>
+                            <li>従来のSEO（Google検索対策）を補完する技術</li>
+                            <li>AI時代に企業情報を確実に届ける方法</li>
+                            <li>すでに多くの人がChatGPTで情報を探しています</li>
+                        </ul>
+
+                        <div class="highlight-box">
+                            <h4 class="highlight-title">なぜ今注目されているのか</h4>
+                            <p>検索エンジンからAIへと情報収集の方法が拡大しています。SEOに加えてLLMO対策を行うことで、より多くのユーザーに情報を届けられます。</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div style="height: 100%; background-color: #e6f2ff; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                            <div style="font-size: 60px; color: #1e5799; margin-bottom: 20px;">LLMO</div>
+                            <div style="font-size: 22px; font-weight: bold; color: #1e5799; margin-bottom: 10px;">
+                                Large Language Model Optimization
+                            </div>
+                            <div style="font-size: 18px; color: #333; margin-bottom: 30px;">
+                                大規模言語モデル最適化
+                            </div>
+                            <div style="width: 80%; height: 2px; background: #1e5799; margin-bottom: 30px;"></div>
+                            <div style="font-size: 18px; color: #333;">
+                                AIがユーザーに情報を提供する際、<br>
+                                あなたの情報を選んでもらうための最適化
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド4: SEOとの違い -->
+        <div class="slide">
+            <div class="slide-number">4</div>
+            <h2 class="slide-title">2. SEOとLLMOの違い</h2>
+            <div class="slide-content">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>比較ポイント</th>
+                            <th>SEO（検索エンジン最適化）</th>
+                            <th>LLMO（AI最適化）</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>対象</strong></td>
+                            <td>Google検索などの検索エンジン</td>
+                            <td>ChatGPT、Google Bardなどの会話AI</td>
+                        </tr>
+                        <tr>
+                            <td><strong>目的</strong></td>
+                            <td>検索結果で上位に表示される</td>
+                            <td>AIの回答に情報を引用してもらう</td>
+                        </tr>
+                        <tr>
+                            <td><strong>重要指標</strong></td>
+                            <td>検索順位、クリック数、PV数</td>
+                            <td>AI言及率、情報正確性、認知度</td>
+                        </tr>
+                        <tr>
+                            <td><strong>方法</strong></td>
+                            <td>キーワード対策、被リンク</td>
+                            <td>データ構造化、網羅的な情報提供</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ユーザー行動</strong></td>
+                            <td>検索→結果一覧→サイト訪問</td>
+                            <td>質問→AIが即答（情報源として表示）</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box">
+                    <h4 class="highlight-title">SEOとLLMOは補完関係にあります</h4>
+                    <p>従来のSEOで培ったコンテンツ資産を活かしながら、LLMOでAI時代の情報流通にも対応することで、情報到達範囲を広げられます。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド5: ハイブリッド戦略 -->
+        <div class="slide">
+            <div class="slide-number">5</div>
+            <h2 class="slide-title">2. SEO・LLMO併用の強み</h2>
+            <div class="slide-content">
+                <div class="two-columns">
+                    <div class="column">
+                        <h3 class="section-title">両方の戦略を活用するメリット</h3>
+                        <ul class="bullet-list">
+                            <li>従来の検索とAI検索の両方をカバー</li>
+                            <li>SEOで培ったコンテンツ資産の価値を最大化</li>
+                            <li>ユーザーとの接点を増やす</li>
+                            <li>情報の届く範囲を広げられる</li>
+                        </ul>
+
+                        <div class="highlight-box">
+                            <h4 class="highlight-title">市場での優位性</h4>
+                            <p>多くの競合がまだLLMOに気づいていません。SEOの強みを持つ御社が早期に取り組むことで、さらなる市場優位性を確立できます。</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="comparison-block">
+                            <div class="comparison-item">
+                                <div class="comparison-title">SEOのみ</div>
+                                <p>検索エンジンユーザーへのリーチ</p>
+                                <p>培ったSEO資産を活用</p>
+                                <div class="arrow-right">→</div>
+                            </div>
+                            <div class="comparison-item highlighted">
+                                <div class="comparison-title" style="color: #1e5799;">SEO + LLMO</div>
+                                <p>検索とAI両方のユーザーにリーチ</p>
+                                <p>SEO資産を活かしつつ新領域も開拓</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 30px; background-color: #e6f2ff; border-radius: 8px; padding: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 200px;">
+                            <div style="font-size: 22px; font-weight: bold; color: #1e5799; margin-bottom: 20px; text-align: center;">
+                                SEO + LLMO 相乗効果
+                            </div>
+                            <div style="display: flex; width: 100%; justify-content: space-around; align-items: center;">
+                                <div style="width: 120px; height: 120px; border-radius: 60px; background-color: #1e5799; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold;">
+                                    SEO
+                                </div>
+                                <div style="font-size: 30px; color: #1e5799; font-weight: bold;">
+                                    +
+                                </div>
+                                <div style="width: 120px; height: 120px; border-radius: 60px; background-color: #7db9e8; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold;">
+                                    LLMO
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド6: SEOを補完する理由 -->
+        <div class="slide">
+            <div class="slide-number">6</div>
+            <h2 class="slide-title">3. なぜSEOを補完する必要があるのか</h2>
+            <div class="slide-content">
+                <div class="two-columns">
+                    <div class="column">
+                        <h3 class="section-title">情報収集方法の変化</h3>
+                        <div class="bar-chart">
+                            <div style="position: relative;">
+                                <div class="bar" style="height: 30px;">
+                                    <div class="bar-value">10%</div>
+                                    <div class="bar-label">2024年</div>
+                                </div>
+                            </div>
+                            <div style="position: relative;">
+                                <div class="bar" style="height: 60px;">
+                                    <div class="bar-value">20%</div>
+                                    <div class="bar-label">2025年</div>
+                                </div>
+                            </div>
+                            <div style="position: relative;">
+                                <div class="bar" style="height: 120px;">
+                                    <div class="bar-value">40%</div>
+                                    <div class="bar-label">2026年</div>
+                                </div>
+                            </div>
+                            <div style="position: relative;">
+                                <div class="bar" style="height: 180px;">
+                                    <div class="bar-value">60%</div>
+                                    <div class="bar-label">2027年</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="text-align: center; margin-top: 30px;">AIアシスタント利用率の予測（%）</p>
+                    </div>
+                    <div class="column">
+                        <h3 class="section-title">SEOとLLMOの補完関係</h3>
+                        <ul class="bullet-list">
+                            <li>SEOとLLMOを組み合わせることで情報到達範囲が拡大</li>
+                            <li>SEOで培った良質なコンテンツがLLMOでも強み</li>
+                            <li>AIが増える中でも検索エンジンは引き続き重要</li>
+                            <li>SEOとLLMOの両輪で最大の効果を発揮</li>
+                        </ul>
+                        
+                        <h3 class="section-title">AIならではの特性</h3>
+                        <ul class="bullet-list">
+                            <li>即座に欲しい情報だけを回答</li>
+                            <li>情報源として引用されることでブランド認知向上</li>
+                            <li>新たなユーザー層への到達経路に</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド7: 背景と必要性 -->
+        <div class="slide">
+            <div class="slide-number">7</div>
+            <h2 class="slide-title">4. 背景と必要性</h2>
+            <div class="slide-content">
+                <div class="two-columns">
+                    <div class="column">
+                        <h3 class="section-title" style="text-align: center; margin-bottom: 20px;">情報検索の進化</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-date">1</div>
+                                <div class="timeline-content">
+                                    <h4 class="timeline-title">2010年代前半：ウェブサイト中心</h4>
+                                    <p style="margin: 0;">キーワードSEOが主流。パソコンでの検索が一般的。</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2</div>
+                                <div class="timeline-content">
+                                    <h4 class="timeline-title">2010年代後半：モバイル・SNS時代</h4>
+                                    <p style="margin: 0;">スマホ検索が増加。SNSからの流入も重要に。</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">3</div>
+                                <div class="timeline-content">
+                                    <h4 class="timeline-title">2020-2023年：動画・音声検索</h4>
+                                    <p style="margin: 0;">「Hey Siri」などの音声検索。YouTube検索も増加。</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">4</div>
+                                <div class="timeline-content">
+                                    <h4 class="timeline-title">2024年以降：AI時代</h4>
+                                    <p style="margin: 0;">ChatGPTなどのAIが情報の窓口として拡大。SEOに加えLLMOも重要に。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <h3 class="section-title">各社AIアシスタントの導入状況</h3>
+                        
+                        <div class="tech-box">
+                            <div class="tech-logo">Apple</div>
+                            <div class="tech-content">
+                                <h4 class="tech-title">Apple Intelligence</h4>
+                                <p class="tech-text">iPhoneやMacに統合されたAIアシスタント。情報検索からメール作成まで幅広くサポート。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-box">
+                            <div class="tech-logo">Google</div>
+                            <div class="tech-content">
+                                <h4 class="tech-title">Google Gemini</h4>
+                                <p class="tech-text">Androidスマホ向けAIアシスタント。検索機能と連携し、質問に直接回答する機能を強化。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tech-box">
+                            <div class="tech-logo">Samsung</div>
+                            <div class="tech-content">
+                                <h4 class="tech-title">Galaxy AI</h4>
+                                <p class="tech-text">Galaxyシリーズに搭載されたAI機能。情報へのアクセスや要約機能を提供。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <h4 class="highlight-title">スマートフォンAIの普及</h4>
+                            <p>2024-2025年にスマートフォンのAIアシスタントが標準機能になることで、検索行動が大きく変化します。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<div class="slide-container">
+        <!-- スライド8: 情報流通の変化 -->
+        <div class="slide">
+            <div class="slide-number">8</div>
+            <h2 class="slide-title">4. 情報流通の変化とその影響</h2>
+            <div class="slide-content">
+                <div class="two-columns">
+                    <div class="column">
+                        <h3 class="section-title">検索からAIへの拡大</h3>
+                        <div class="comparison-block">
+                            <div class="comparison-item">
+                                <div class="comparison-title">従来の検索</div>
+                                <p>多数のサイトから選択</p>
+                                <p>情報を自分で判断</p>
+                                <div class="arrow-right">→</div>
+                            </div>
+                            <div class="comparison-item highlighted">
+                                <div class="comparison-title" style="color: #1e5799;">AI回答</div>
+                                <p>一つの回答を提供</p>
+                                <p>情報源を明示</p>
+                            </div>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <h4 class="highlight-title">重要なポイント</h4>
+                            <p>AIが「信頼できる情報源」と判断したサイトだけが回答に引用されます。LLMOはこの「信頼できる情報源」になるための対策です。</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <h3 class="section-title">企業への影響</h3>
+                        <ul class="bullet-list">
+                            <li>情報がAIを通じて間接的にも伝わるようになる</li>
+                            <li>AIの回答に含まれることで新たな認知経路ができる</li>
+                            <li>情報の正確さと網羅性がより重要になる</li>
+                            <li>ユーザーとの接点が多様化する</li>
+                        </ul>
+                        
+                        <div class="highlight-box">
+                            <h4 class="highlight-title">機会としての活用</h4>
+                            <p>AIに引用されることで、これまでリーチできなかった新たなユーザー層へのアピールが可能になります。SEOに加えてLLMOにも取り組むことで、情報流通の範囲を広げられます。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド9: LLMOの基本的な仕組み(1) -->
+        <div class="slide">
+            <div class="slide-number">9</div>
+            <h2 class="slide-title">5. LLMOの基本的な仕組み (1)</h2>
+            <div class="slide-content">
+                <div class="two-columns">
+                    <div class="column">
+                        <h3 class="section-title">AIが情報を評価する基準</h3>
+                        <ul class="bullet-list">
+                            <li>情報の信頼性（権威性と専門性）</li>
+                            <li>データの構造化レベル</li>
+                            <li>情報の網羅性と詳細さ</li>
+                            <li>最新情報への更新頻度</li>
+                            <li>事実確認の容易さ</li>
+                        </ul>
+                        
+                        <div class="highlight-box">
+                            <h4 class="highlight-title">AIは「整理された情報」を好みます</h4>
+                            <p>情報が明確に構造化されていると、AIは内容を正確に理解し引用しやすくなります。SEOのノウハウを活かしながら、AIが理解しやすい形式で情報提供することが重要です。</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <h3 class="section-title">LLMOの主な対策</h3>
+                        <div class="feature-box">
+                            <div class="feature-icon">1</div>
+                            <div class="feature-content">
+                                <h4 class="feature-title">データ構造化</h4>
+                                <p class="feature-text">スキーママークアップなどを使ってAIが理解しやすい形式で情報を提供</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-box">
+                            <div class="feature-icon">2</div>
+                            <div class="feature-content">
+                                <h4 class="feature-title">情報の整理と区分け</h4>
+                                <p class="feature-text">見出しや段落を明確に分け、論理的な構成で情報を提供</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-box">
+                            <div class="feature-icon">3</div>
+                            <div class="feature-content">
+                                <h4 class="feature-title">メタデータの充実</h4>
+                                <p class="feature-text">AIが情報の文脈を理解しやすいように追加データを提供</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-box">
+                            <div class="feature-icon">4</div>
+                            <div class="feature-content">
+                                <h4 class="feature-title">引用されやすい形式</h4>
+                                <p class="feature-text">定義、リスト、表などAIが抽出しやすい形式でコンテンツを提供</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド10: LLMOの基本的な仕組み(2) -->
+        <div class="slide">
+            <div class="slide-number">10</div>
+            <h2 class="slide-title">5. LLMOの基本的な仕組み (2)</h2>
+            <div class="slide-content">
+                <h3 class="section-title">LLMOとSEOの技術的差異</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>技術要素</th>
+                            <th>SEOでの対応</th>
+                            <th>LLMOでの対応</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>コンテンツ構造</strong></td>
+                            <td>見出しタグとキーワード配置</td>
+                            <td>構造化データとセマンティックな関連付け</td>
+                        </tr>
+                        <tr>
+                            <td><strong>メタデータ</strong></td>
+                            <td>タイトル・説明文の最適化</td>
+                            <td>AIトレーニング用メタデータの拡充</td>
+                        </tr>
+                        <tr>
+                            <td><strong>情報の信頼性</strong></td>
+                            <td>EAT原則に沿った情報提供</td>
+                            <td>ファクトチェック対応と情報の検証可能性</td>
+                        </tr>
+                        <tr>
+                            <td><strong>データ形式</strong></td>
+                            <td>HTML最適化と読みやすさ</td>
+                            <td>FAQスキーマ、定義リスト等の強化</td>
+                        </tr>
+                        <tr>
+                            <td><strong>更新頻度</strong></td>
+                            <td>検索エンジン再クロール対応</td>
+                            <td>AI学習データセット更新サイクルへの対応</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box">
+                    <h4 class="highlight-title">LLMOはSEOの延長線上にあります</h4>
+                    <p>これまでのSEO対策の多くはLLMOでも有効です。SEOの知見を活かしながら、AIに特化した新しい要素を加えることで効果的な対策が可能になります。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド11: 競合をリードするための戦略(1) -->
+        <div class="slide">
+            <div class="slide-number">11</div>
+            <h2 class="slide-title">6. 競合をリードするための戦略 (1)</h2>
+            <div class="slide-content">
+                <div class="two-columns">
+                    <div class="column">
+                        <h3 class="section-title">先行者メリットの獲得</h3>
+                        <ul class="bullet-list">
+                            <li>業界内でのLLMO実践企業としてのポジショニング</li>
+                            <li>AIプラットフォームとの関係構築</li>
+                            <li>トレーニングデータセットへの早期組み込み</li>
+                            <li>SEOとLLMOの統合ノウハウの蓄積</li>
+                        </ul>
+                        
+                        <div class="highlight-box">
+                            <h4 class="highlight-title">市場のトレンド</h4>
+                            <p>多くの競合がまだLLMOを認識していない段階です。早期に対応を始めることで、AI時代の情報流通において競争優位性を確立できます。</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <h3 class="section-title">御社のSEO資産を活かす</h3>
+                        <div class="feature-box">
+                            <div class="feature-icon">+</div>
+                            <div class="feature-content">
+                                <h4 class="feature-title">SEOで培ったコンテンツの強化</h4>
+                                <p class="feature-text">すでに検索上位に表示されているコンテンツをLLMO対応にすることで、二重の効果を得られます</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-box">
+                            <div class="feature-icon">+</div>
+                            <div class="feature-content">
+                                <h4 class="feature-title">専門性の体系化</h4>
+                                <p class="feature-text">既存のSEOコンテンツを体系的に整理し、AIが理解しやすい知識構造を構築します</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-box">
+                            <div class="feature-icon">+</div>
+                            <div class="feature-content">
+                                <h4 class="feature-title">SEO×LLMOの統合戦略</h4>
+                                <p class="feature-text">どちらか一方ではなく、両方を補完的に活用する統合アプローチを採用します</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド12: 競合をリードするための戦略(2) -->
+        <div class="slide">
+            <div class="slide-number">12</div>
+            <h2 class="slide-title">6. 競合をリードするための戦略 (2)</h2>
+            <div class="slide-content">
+                <div class="two-columns">
+                    <div class="column">
+                        <h3 class="section-title">競合分析と優位性確保</h3>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>LLMO対応状況</th>
+                                    <th>推定割合</th>
+                                    <th>競合状況</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>積極的対応</td>
+                                    <td>5%未満</td>
+                                    <td>一部先進企業のみ</td>
+                                </tr>
+                                <tr>
+                                    <td>部分的対応</td>
+                                    <td>10-15%</td>
+                                    <td>大手企業の一部</td>
+                                </tr>
+                                <tr>
+                                    <td>未対応</td>
+                                    <td>80%以上</td>
+                                    <td>ほとんどの企業</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="highlight-box">
+                            <h4 class="highlight-title">海外での動向</h4>
+                            <p>米国では約20%の企業がLLMO対策を開始しており、日本より先行しています。グローバル企業の動きを参考にすることで、国内市場での優位性が確保できます。</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <h3 class="section-title">優位性確保の具体策</h3>
+                        <ul class="bullet-list">
+                            <li>包括的なコンテンツ戦略の再構築
+                                <ul style="margin-top: 5px; padding-left: 20px;">
+                                    <li style="margin-bottom: 5px;">SEOとLLMOを両立させる新しいコンテンツ体系の構築</li>
+                                </ul>
+                            </li>
+                            <li>AI学習用データセットへの情報提供
+                                <ul style="margin-top: 5px; padding-left: 20px;">
+                                    <li style="margin-bottom: 5px;">構造化データを充実させAIが学習しやすい形式での情報提供</li>
+                                </ul>
+                            </li>
+                            <li>デジタルプレゼンスの構造的強化
+                                <ul style="margin-top: 5px; padding-left: 20px;">
+                                    <li style="margin-bottom: 5px;">WebサイトだけでなくAIプラットフォームでの認知拡大</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <div style="margin-top: 20px; background-color: #e6f2ff; border-radius: 8px; padding: 15px; text-align: center;">
+                            <div style="font-size: 22px; font-weight: bold; color: #1e5799; margin-bottom: 10px;">
+                                20%→80%の法則
+                            </div>
+                            <p style="margin: 0; font-size: 16px;">
+                                全てを一度に対応するのではなく、最も効果の高い20%から着手することで80%の効果を得ることができます
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド13: 今からできる対策と投資計画(1) -->
+        <div class="slide">
+            <div class="slide-number">13</div>
+            <h2 class="slide-title">7. 今からできる対策と投資計画 (1)</h2>
+            <div class="slide-content">
+                <h3 class="section-title" style="text-align: center; margin-bottom: 20px;">段階的LLMO導入プラン</h3>
+                
+                <div class="phase-block">
+                    <h4 class="phase-title">フェーズ1：基盤構築（1-3ヶ月）</h4>
+                    <ul class="phase-list">
+                        <li>現状のSEO対策と実績の分析</li>
+                        <li>LLMO対応の現状診断と方針策定</li>
+                        <li>優先度の高いコンテンツの選定</li>
+                        <li>技術チームのスキル獲得支援</li>
+                    </ul>
+                </div>
+                
+                <div class="phase-block">
+                    <h4 class="phase-title">フェーズ2：重点施策実施（4-6ヶ月）</h4>
+                    <ul class="phase-list">
+                        <li>重点コンテンツのLLMO最適化</li>
+                        <li>構造化データの実装と拡充</li>
+                        <li>FAQ・定義コンテンツの強化</li>
+                        <li>専門性証明コンテンツの整備</li>
+                    </ul>
+                </div>
+                
+                <div class="phase-block">
+                    <h4 class="phase-title">フェーズ3：拡大と測定（7-12ヶ月）</h4>
+                    <ul class="phase-list">
+                        <li>全社的なLLMO対応の拡大</li>
+                        <li>効果測定の仕組み確立</li>
+                        <li>SEO・LLMO統合戦略の確立</li>
+                        <li>継続的な最適化体制の構築</li>
+                    </ul>
+                </div>
+                
+                <div class="highlight-box">
+                    <h4 class="highlight-title">スモールスタートで効果を検証</h4>
+                    <p>大規模な投資は避け、重要度の高いコンテンツから段階的に対応することでリスクを抑えながら効果を検証できます。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- スライド14: 今からできる対策と投資計画(2) -->
+        <div class="slide">
+            <div class="slide-number">14</div>
+            <h2 class="slide-title">7. 今からできる対策と投資計画 (2)</h2>
+            <div class="slide-content">
+                <div class="two-columns">
+                    <div class="column">
+                        <h3 class="section-title">必要投資の目安</h3>
+                        
+                        <div class="investment-box">
+                            <div class="investment-header">
+                                <h4 class="investment-title">初期分析・戦略策定</h4>
+                                <div class="investment-amount">約100万円</div>
+                            </div>
+                            <p class="investment-description">現状分析、競合調査、戦略策定等の初期コンサルティング</p>
+                        </div>
+                        
+                        <div class="investment-box">
+                            <div class="investment-header">
+                                <h4 class="investment-title">技術対応・システム改修</h4>
+                                <div class="investment-amount">約200-300万円</div>
+                            </div>
+                            <p class="investment-description">構造化データ実装、技術的対応、システム改修等</p>
+                        </div>
+                        
+                        <div class="investment-box">
+                            <div class="investment-header">
+                                <h4 class="investment-title">コンテンツ最適化</h4>
+                                <div class="investment-amount">約200万円/年</div>
+                            </div>
+                            <p class="investment-description">既存コンテンツのLLMO対応と新規コンテンツ制作</p>
+                        </div>
+                        
+                        <div class="investment-box">
+                            <div class="investment-header">
+                                <h4 class="investment-title">継続的な運用・効果測定</h4>
+                                <div class="investment-amount">約100万円/年</div>
+                            </div>
+                            <p class="investment-description">効果測定と継続的な最適化の運用費用</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <h3 class="section-title">期待できる効果</h3>
+                        
+                        <div class="feature-box">
+                            <div class="feature-icon">↑</div>
+                            <div class="feature-content">
+                                <h4 class="feature-title">AI言及率の向上</h4>
+                                <p class="feature-text">AIの回答で引用される頻度が業界平均の3倍に向上</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-box">
+                            <div class="feature-icon">↑</div>
+                            <div class="feature-content">
+                                <h4 class="feature-title">ブランド認知度の拡大</h4>
+                                <p class="feature-text">従来のSEO施策と比較して約30%のブランド認知
+</body>
+</html>
